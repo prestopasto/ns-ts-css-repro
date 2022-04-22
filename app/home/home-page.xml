@@ -1,0 +1,36 @@
+<Page navigatingTo="onNavigatingTo" xmlns="http://schemas.nativescript.org/tns.xsd">
+    
+    <ActionBar>
+        <Label text="Home" />
+    </ActionBar>
+
+    <StackLayout class="p-20 layout">
+  <!-- Normal CSS works -->
+  <Label text="Static CSS" class="static-css"></Label>
+
+  <!-- Using a Custom CSS Property that was defined on the .layout class works -->
+  <Label text="Static CSS Property" class="static-css-property"></Label>
+
+  <!-- Setting a Custom CSS Property inline works --><Label
+    text="Inline Custom Property"
+    style="--color: green; background-color: var(--color)"
+  ></Label>
+
+  <!-- Setting styles dynamically defined in the component .ts file works -->
+  <Label
+    text="Dynamic CSS Style"
+    class="dynamic-css-style"
+    loaded="dynamicStyleLabelLoaded"
+  ></Label>
+  <!-- 
+    Setting a CSS Custom Property dynamically works
+    A gray color is used from the .layout component css, and is over-written when the label is loaded
+    through setting dynamic-color.  The CSS on this class uses it in the background color definition and
+    it is recalculated and renders correctly -->
+  <Label
+    text="Dynamic CSS Property"
+    class="dynamic-css-property"
+    loaded="dynamicPropertyLabelLoaded"
+  ></Label>
+</StackLayout>
+</Page>
